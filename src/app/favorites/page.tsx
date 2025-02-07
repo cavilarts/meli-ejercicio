@@ -1,7 +1,8 @@
+
 export default function Home() {
   return (
     <main>
-      <h1>Welcome to Mercadolibre</h1>
+      <h1>Welcome to favorites</h1>
     </main>
   );
 }
