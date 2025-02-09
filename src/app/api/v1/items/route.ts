@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
   } catch (e) {
     return Response.json(
       {
-        error: "An unexpected error has occurred",
+        message: "An unexpected error has occurred",
         details: e,
       },
       {
