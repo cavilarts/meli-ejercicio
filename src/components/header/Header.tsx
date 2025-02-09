@@ -1,9 +1,13 @@
 import { Navigation } from "./Navigation";
 
-export function Header() {
+function Header() {
   return (
     <header className="bg-turbo">
       <Navigation />
     </header>
   );
 }
+
+Header.displayName = Object.keys(Header).join("");
+
+export { Header };

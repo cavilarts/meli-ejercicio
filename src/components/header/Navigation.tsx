@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Navigation() {
+function Navigation() {
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((store) => store.search);
 
@@ -66,3 +66,7 @@ export function Navigation() {
     </nav>
   );
 }
+
+Navigation.displayName = Object.keys(Navigation).join("");
+
+export { Navigation };
