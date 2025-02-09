@@ -22,12 +22,12 @@ async function getProducts(
       price: {
         currency: currency_id,
         amount: price,
-        decimals: price,
+        decimals: 2,
       },
       picture: thumbnail,
       condition,
       free_shipping: shipping?.free_shipping,
-      sold_quantity: 0, // @TODO calculate this amount?
+      sold_quantity: 0,
       description: "get this value from it's endpoint",
     })
   );
@@ -53,10 +53,10 @@ export async function GET(request: NextRequest) {
       status: 200,
     });
   } catch (e) {
+    console.error(e);
     return Response.json(
       {
         message: "An unexpected error has occurred",
-        details: e,
       },
       {
         status: 500,

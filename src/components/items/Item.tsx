@@ -8,10 +8,12 @@ export type ItemProps = {
 
 function Item({ item }: ItemProps) {
   const formatPrice = (price: number) => {
+    debugger;
     return price.toLocaleString("es-AR", {
       style: "currency",
       currency: item.price.currency,
       minimumFractionDigits: item.price.decimals,
+      maximumFractionDigits: item.price.decimals,
     });
   };
 

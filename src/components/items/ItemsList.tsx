@@ -2,11 +2,26 @@
 
 import { useSearchItemQuery } from "@/lib/slices/searchApiSlice";
 import { Item } from "./Item";
-import { useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useEffect } from "react";
+import { setSearchStatus } from "@/lib/slices/searchSlice";
 
 function ItemsList() {
-  const { value: q } = useAppSelector((store) => store.search);
-  const { data, error: e, isFetching } = useSearchItemQuery(q as string);
+  const dispatch = useAppDispatch();
+  const { value: q, enableSearch } = useAppSelector((store) => store.search);
+  const {
+    data,
+    error: e,
+    isFetching,
+  } = useSearchItemQuery(q as string, {
+    skip: !enableSearch,
+  });
+
+  useEffect(() => {
+    if (enableSearch && !isFetching) {
+      dispatch(setSearchStatus(false));
+    }
+  }, [enableSearch, isFetching, dispatch]);
 
   if (isFetching) return <div>Loading...</div>;
 
