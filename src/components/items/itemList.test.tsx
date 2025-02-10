@@ -86,8 +86,8 @@ describe("<ItemsList />", () => {
   });
 
   test("should render the item image", () => {
-    const image = screen.getByRole("img", { name: "Item 1" });
-    const image2 = screen.getByRole("img", { name: "Item 2" });
+    const image = screen.getByRole("img", { name: "Imagen de Item 1" });
+    const image2 = screen.getByRole("img", { name: "Imagen de Item 2" });
 
     expect(image).toBeDefined();
     expect(image2).toBeDefined();

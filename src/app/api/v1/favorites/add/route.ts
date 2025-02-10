@@ -15,27 +15,16 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { id } = body;
     const favorite = favorites.find((favorite) => favorite.id === id);
-    if (favorite) {
-      return Response.json(
-        {
-          message: "Favorite already exists",
-        },
-        {
-          status: 400,
-        }
-      );
-    }
-    favorites.push(body);
 
-    return Response.json(
-      {
-        message: "Favorite created",
-        data: body,
-      },
-      {
-        status: 201,
-      }
-    );
+    if (favorite !== undefined) {
+      favorites.splice(favorites.indexOf(favorite), 1);
+    } else {
+      favorites.push(body);
+    }
+
+    return Response.json(favorites, {
+      status: 201,
+    });
   } catch (e) {
     console.error(e);
     return Response.json(

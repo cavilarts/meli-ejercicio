@@ -2,14 +2,9 @@ import { favorites } from "../favorites";
 
 export async function GET() {
   try {
-    return Response.json(
-      {
-        data: favorites,
-      },
-      {
-        status: 200,
-      }
-    );
+    return Response.json(favorites, {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
     return Response.json(

@@ -1,12 +1,22 @@
 import type { Item as ItemType } from "@/types/item";
 import Image from "next/image";
 import Link from "next/link";
+import { FavoriteButton } from "../favorites/FavoriteButton";
+import { useGetFavoritesQuery } from "@/lib/slices/favoritesApiSlice";
 
 export type ItemProps = {
   item: ItemType;
 };
 
 function Item({ item }: ItemProps) {
+  const favorites =
+    useGetFavoritesQuery(undefined, {
+      refetchOnMountOrArgChange: true,
+    }) ?? [];
+  const isFavorite = favorites.data?.some(
+    (favorite) => favorite.id === item.id
+  );
+
   const formatPrice = (price: number) => {
     return price.toLocaleString("es-AR", {
       style: "currency",
@@ -25,14 +35,14 @@ function Item({ item }: ItemProps) {
       >
         <Image
           src={item.picture}
-          alt={item.title}
+          alt={`Imagen de ${item.title}`}
           width="180"
           height="180"
           className="rounded-sm w-36 h-36"
         />
         <div>
           <div className="flex gap-2 mb-4">
-            <p className="text-2xl">{formatPrice(item.price.amount)}</p>
+            <h2 className="text-2xl">{formatPrice(item.price.amount)}</h2>
             <Image
               src="/images/ic_shipping.png"
               alt="Free shipping"
@@ -41,8 +51,9 @@ function Item({ item }: ItemProps) {
               className="self-center w-6 h-6"
             />
           </div>
-          <h2>{item.title}</h2>
+          <h3>{item.title}</h3>
         </div>
+        <FavoriteButton item={{ ...item, favorite: !!isFavorite }} />
       </article>
     </Link>
   );
