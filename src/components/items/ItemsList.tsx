@@ -28,7 +28,7 @@ function ItemsList() {
   if (e) return <div>Error: {JSON.stringify(e)}</div>;
 
   return (
-    <section>
+    <section data-testid="search-results">
       {data?.items.map((item) => (
         <Item key={item.id} item={item} />
       ))}

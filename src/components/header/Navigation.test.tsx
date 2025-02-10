@@ -1,7 +1,17 @@
-import { test, describe, expect, beforeAll } from "vitest";
+import { test, describe, expect, beforeAll, vitest } from "vitest";
 import { screen, waitFor } from "@testing-library/react";
 import { Navigation } from "./Navigation";
 import { renderWithProviders } from "@/lib/test/testUtils";
+
+// mock useSearchParams
+vitest.mock("next/navigation", () => ({
+  useSearchParams: () => ({
+    get: () => "",
+  }),
+  useRouter: () => ({
+    push: vitest.fn(),
+  }),
+}));
 
 describe("<Navigation />", () => {
   beforeAll(() => {
