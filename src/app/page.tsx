@@ -1,9 +1,9 @@
-import ItemsList from "@/components/items/ItemsList";
-
 export default function Home() {
   return (
-    <main>
-      <ItemsList />
+    <main className="bg-gray-100">
+      <article className="container mx-auto p-4" data-testid="welcome-message">
+        <p>Bienvenido</p>
+      </article>
     </main>
   );
 }

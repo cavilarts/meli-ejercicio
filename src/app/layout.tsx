@@ -3,6 +3,7 @@ import { Figtree } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
 import StoreProvider from "@/components/provider/StoreProvider";
+import { Suspense } from "react";
 
 const figTree = Figtree({
   subsets: ["latin"],
@@ -22,8 +23,10 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${figTree.className} antialiased`}>
         <StoreProvider>
-          <Header />
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>
+            <Header />
+            {children}
+          </Suspense>
         </StoreProvider>
       </body>
     </html>
