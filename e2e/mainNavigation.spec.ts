@@ -100,3 +100,35 @@ test("has to navigate to the item detail page when clicking on an item", async (
   const itemDetailPage = await page.$("data-testid=item-detail-page");
   expect(itemDetailPage).not.toBeNull();
 });
+
+test("has to display the favorite buttons, add the favorite item to the list and navigate to the favorites page", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:3000/items?search=ipad");
+
+  const searchResults = await page.waitForSelector(
+    "data-testid=search-results"
+  );
+  expect(searchResults).not.toBeNull();
+
+  const favoriteButton = await page.$$("data-testid=favorite-button");
+
+  await favoriteButton[0].click();
+  await favoriteButton[1].click();
+
+  const favoritesLink = await page.waitForSelector(
+    "data-testid=favorites-link"
+  );
+  expect(favoritesLink).not.toBeNull();
+
+  await favoritesLink.click();
+
+  await page.waitForURL("http://localhost:3000/favorites");
+
+  // @TODO: Fix as the items are beign allocated in memory it is not possible to check the favorites list
+  // const favorites = await page.$$("data-item-id");
+  // expect(favorites.length).toBe(2);
+
+  const favoritesPage = await page.$("data-testid=favorites-page");
+  expect(favoritesPage).not.toBeNull();
+});

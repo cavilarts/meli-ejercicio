@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { FavoritesLink } from "../favorites/FavoritesLink";
 
 function Navigation() {
   const searchParams = useSearchParams();
@@ -53,6 +54,7 @@ function Navigation() {
             data-testid="logo"
           />
         </Link>
+        <FavoritesLink />
         <div className="flex w-full shadow-md gap-0 rounded-md overflow-hidden">
           <label className="invisible w-0 h-0" htmlFor="search">
             Search your favorite products
