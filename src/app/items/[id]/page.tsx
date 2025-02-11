@@ -20,11 +20,12 @@ async function getProduct(id: string): Promise<ItemExtra> {
 
 async function getFavorite(id: string): Promise<boolean> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/favorites/get/`
+    `${process.env.NEXT_PUBLIC_API_URL}/favorites/get`
   );
-  const { favorites } = await response.json();
+  const favorites = await response.json();
+  const favorite = favorites?.find((favorite: ItemExtra) => favorite.id === id);
 
-  return favorites?.includes(id) ?? false;
+  return favorite ? true : false;
 }
 
 async function getCategories(id: string): Promise<string[]> {
