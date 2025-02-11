@@ -42,9 +42,9 @@ function Navigation() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <nav className="flex flex-col items-center justify-center">
-        <div className="flex w-full justify-between items-center p-4">
-          <Link className="py-8" href="/">
+      <nav className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-primar md:items-center md:p-4 md:gap-2 md:max-w-7xl md:mx-auto">
+        <div className="flex w-full justify-between items-center p-4 md:w-auto md:p-0">
+          <Link className="py-8 md:py-0" href="/">
             <Image
               className="w-[84px] h-[54px]"
               src="/images/Logo_ML@2x.png"
@@ -55,9 +55,11 @@ function Navigation() {
               data-testid="logo"
             />
           </Link>
-          <FavoritesLink />
+          <div className="md:hidden">
+            <FavoritesLink />
+          </div>
         </div>
-        <div className="flex w-full shadow-md gap-0 rounded-md overflow-hidden">
+        <div className="flex w-full shadow-md gap-0 rounded-md overflow-hidden md:shadow-none">
           <label className="invisible w-0 h-0" htmlFor="search">
             Search your favorite products
           </label>
@@ -84,6 +86,9 @@ function Navigation() {
               height="25"
             />
           </button>
+          <div className="hidden md:flex">
+            <FavoritesLink />
+          </div>
         </div>
       </nav>
     </Suspense>

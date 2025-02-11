@@ -6,7 +6,7 @@ export type BreadcrumbsServerProps = {
 
 function BreadcrumbsServer({ items }: BreadcrumbsServerProps) {
   return (
-    <section className="p-4">
+    <section className="p-4 md:max-w-7xl md:mx-auto">
       <ul className="flex items-center space-x-2 text-sm text-gray-500">
         {items.map((item, index) => (
           <li key={`${item}-${index}`} className="text-black">

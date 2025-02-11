@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
@@ -13,6 +13,14 @@ const figTree = Figtree({
 export const metadata: Metadata = {
   title: "Mercado Libre Argentina - Envíos Gratis en el día",
   description: "Mercado Libre, busca tus productos aqui!",
+  keywords: "Mercado Libre, Argentina, envíos gratis, productos",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -22,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${figTree.className} antialiased flex flex-col h-screen`}
-      >
+      <body className={`${figTree.className}`}>
         <StoreProvider>
           <Suspense fallback={<Spinner />}>
             <Header />

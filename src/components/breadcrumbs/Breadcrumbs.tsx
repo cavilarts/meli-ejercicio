@@ -16,8 +16,8 @@ function Breadcrumbs() {
   }, [] as string[]);
 
   return (
-    <section className="p-4">
-      <ul className="flex items-center space-x-2 text-sm text-gray-500">
+    <section className="p-4 md:max-w-7xl md:mx-auto">
+      <ul className="flex items-center space-x-2 text-sm text-gray-500 md:w-[1280px]">
         {itemsWithSeparator.map((item, index) => (
           <li key={`${item}-${index}`} className="text-black">
             {item.includes(">") && <span data-testid="separator">{item}</span>}
