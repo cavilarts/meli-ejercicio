@@ -151,9 +151,20 @@ test("has to display the favorite buttons, add the favorite item to the list and
     "https://meli-ejercicio-git-main-cavilarts-projects.vercel.app/favorites"
   );
 
-  const favorites = await page.$$("data-item-id");
-  expect(favorites.length).toBe(2);
-
   const favoritesPage = await page.$("data-testid=favorites-page");
   expect(favoritesPage).not.toBeNull();
+
+  await page.waitForSelector("data-testid=favorites-list");
+
+  const loadingFavs = await page.waitForSelector(
+    "data-testid=spinner-component"
+  );
+
+  expect(loadingFavs).not.toBeNull();
+
+  await page.waitForSelector("data-testid=item");
+
+  const favorites = await page.$$("data-testid=item");
+
+  expect(favorites.length).toBe(2);
 });
