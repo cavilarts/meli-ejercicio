@@ -13,7 +13,6 @@ const figTree = Figtree({
 export const metadata: Metadata = {
   title: "Mercado Libre Argentina - Envíos Gratis en el día",
   description: "Mercado Libre, busca tus productos aqui!",
-  viewport: "width=device-width, initial-scale=1",
   keywords: "Mercado Libre, Argentina, envíos gratis, productos",
 };
 
