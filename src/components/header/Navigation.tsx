@@ -43,18 +43,20 @@ function Navigation() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <nav className="flex flex-col items-center justify-center">
-        <Link className="py-8" href="/">
-          <Image
-            className="w-[84px] h-[54px]"
-            src="/images/Logo_ML@2x.png"
-            alt="Mercado Libre Argentina - Donde comprar y vender de todo"
-            width="134"
-            height="34"
-            priority
-            data-testid="logo"
-          />
-        </Link>
-        <FavoritesLink />
+        <div className="flex w-full justify-between items-center p-4">
+          <Link className="py-8" href="/">
+            <Image
+              className="w-[84px] h-[54px]"
+              src="/images/Logo_ML@2x.png"
+              alt="Mercado Libre Argentina - Donde comprar y vender de todo"
+              width="134"
+              height="34"
+              priority
+              data-testid="logo"
+            />
+          </Link>
+          <FavoritesLink />
+        </div>
         <div className="flex w-full shadow-md gap-0 rounded-md overflow-hidden">
           <label className="invisible w-0 h-0" htmlFor="search">
             Search your favorite products

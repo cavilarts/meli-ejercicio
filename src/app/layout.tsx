@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${figTree.className} antialiased`}>
+      <body
+        className={`${figTree.className} antialiased flex flex-col h-screen`}
+      >
         <StoreProvider>
           <Suspense fallback={<div>Loading...</div>}>
             <Header />

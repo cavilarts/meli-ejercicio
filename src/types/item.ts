@@ -22,6 +22,7 @@ export type ItemExtra = Item & {
   sold_quantity: number;
   description: string;
   pictures: ItenImage[];
+  category: string;
 };
 
 export type ItenImage = {

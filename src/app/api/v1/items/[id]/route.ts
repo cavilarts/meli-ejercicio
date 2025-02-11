@@ -4,8 +4,16 @@ async function getProduct(productId: string): Promise<ItemDetails> {
   const itemResponse = await fetch(
     `${process.env.MELI_ITEM_DETAILS}${productId}`
   );
-  const { id, title, price, currency_id, pictures, condition, shipping } =
-    await itemResponse.json();
+  const {
+    id,
+    title,
+    price,
+    currency_id,
+    pictures,
+    condition,
+    shipping,
+    category_id,
+  } = await itemResponse.json();
   const description = await getProductDescription(productId);
 
   return {
@@ -27,6 +35,7 @@ async function getProduct(productId: string): Promise<ItemDetails> {
       free_shipping: shipping.free_shipping,
       sold_quantity: 0,
       description,
+      category: category_id,
     },
   };
 }
