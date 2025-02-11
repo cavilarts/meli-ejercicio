@@ -3,10 +3,11 @@ import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 
 type FavoritesLinkProps = {
+  id: string;
   className?: string;
 };
 
-function FavoritesLink({ className }: FavoritesLinkProps) {
+function FavoritesLink({ className, id }: FavoritesLinkProps) {
   const favorites =
     useGetFavoritesQuery(undefined, { refetchOnMountOrArgChange: true }).data ||
     [];
@@ -14,8 +15,10 @@ function FavoritesLink({ className }: FavoritesLinkProps) {
   return (
     <Link
       href="/favorites"
-      className={`${className} mb-2 relative flex justify-center items-center`}
-      data-testid="favorites-link"
+      className={`${
+        className ? className : ""
+      } mb-2 relative flex justify-center items-center`}
+      data-testid={`favorites-link-${id}`}
     >
       <span className="invisible w-0 h-0 flex">Favoritos</span>
       <span

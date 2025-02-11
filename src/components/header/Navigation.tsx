@@ -56,7 +56,7 @@ function Navigation() {
             />
           </Link>
           <div className="md:hidden">
-            <FavoritesLink className="md:hidden" />
+            <FavoritesLink className="md:hidden" id="mobile" />
           </div>
         </div>
         <div className="flex w-full shadow-md gap-0 rounded-md overflow-hidden md:shadow-none">
@@ -87,7 +87,7 @@ function Navigation() {
             />
           </button>
           <div className="hidden md:flex">
-            <FavoritesLink className="hidden md:flex" />
+            <FavoritesLink id="desktop" />
           </div>
         </div>
       </nav>

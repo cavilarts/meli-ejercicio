@@ -125,14 +125,12 @@ test("has to navigate to the item detail page when clicking on an item", async (
   expect(itemDetailPage).not.toBeNull();
 });
 
-test.skip("has to display the favorite buttons, add the favorite item to the list and navigate to the favorites page", async ({
+test("has to display the favorite buttons, add the favorite item to the list and navigate to the favorites page", async ({
   page,
 }) => {
   await page.goto(
     "https://meli-ejercicio-git-main-cavilarts-projects.vercel.app/items?search=ipad"
   );
-
-  await page.waitForSelector("data-testid=favorites-link");
 
   const searchResults = await page.waitForSelector(
     "data-testid=search-results"
@@ -144,7 +142,7 @@ test.skip("has to display the favorite buttons, add the favorite item to the lis
   await favoriteButton[0].click();
   await favoriteButton[1].click();
 
-  const favoritesLink = await page.$("data-testid=favorites-link");
+  const favoritesLink = await page.$("data-testid=favorites-link-desktop");
   await expect(favoritesLink).not.toBeNull();
 
   await favoritesLink?.click();
@@ -153,9 +151,8 @@ test.skip("has to display the favorite buttons, add the favorite item to the lis
     "https://meli-ejercicio-git-main-cavilarts-projects.vercel.app/favorites"
   );
 
-  // @TODO: Fix as the items are beign allocated in memory it is not possible to check the favorites list
-  // const favorites = await page.$$("data-item-id");
-  // expect(favorites.length).toBe(2);
+  const favorites = await page.$$("data-item-id");
+  expect(favorites.length).toBe(2);
 
   const favoritesPage = await page.$("data-testid=favorites-page");
   expect(favoritesPage).not.toBeNull();

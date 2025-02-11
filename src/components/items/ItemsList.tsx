@@ -22,8 +22,6 @@ function ItemsList() {
 
   if (isFetching || isLoading) return <Spinner />;
 
-  debugger;
-
   return (
     <section
       data-testid="search-results"
