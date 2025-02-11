@@ -18,7 +18,10 @@ export default function Home() {
   }, [query, dispatch]);
 
   return (
-    <main className="bg-gray-100" data-testid="items-page">
+    <main
+      className="bg-gray-100 h-screen w-screen flex flex-col"
+      data-testid="items-page"
+    >
       <Breadcrumbs />
       <ItemsList />
     </main>

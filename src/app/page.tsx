@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="bg-gray-100 h-full">
+    <main className="bg-gray-100 h-screen" data-testid="home-page">
       <article
         className="container mx-auto p-4 flex items-center justify-center h-full"
         data-testid="welcome-message"

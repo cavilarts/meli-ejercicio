@@ -27,9 +27,13 @@ function Item({ item }: ItemProps) {
   };
 
   return (
-    <Link href={`/items/${item.id}`} passHref>
+    <Link
+      href={`/items/${item.id}`}
+      passHref
+      className="flex flex-col mx-auto w-full overflow-hidden"
+    >
       <article
-        className="flex bg-white p-4 gap-4"
+        className="flex bg-white p-4 gap-4 rounded-lg"
         data-testid="item"
         data-item-id={item.id}
       >
@@ -57,6 +61,7 @@ function Item({ item }: ItemProps) {
           <FavoriteButton item={{ ...item, favorite: !!isFavorite }} />
         </div>
       </article>
+      <div className="border-solid border-b-[1px] px-4" />
     </Link>
   );
 }

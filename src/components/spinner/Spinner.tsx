@@ -3,7 +3,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 function Spinner() {
   return (
     <section
-      className="flex justify-center items-center h-full w-full"
+      className="flex justify-center items-center h-screen w-screen"
       data-testid="spinner-component"
     >
       <AiOutlineLoading3Quarters

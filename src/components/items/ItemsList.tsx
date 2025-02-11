@@ -5,15 +5,12 @@ import { Item } from "./Item";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useEffect } from "react";
 import { setSearchStatus } from "@/lib/slices/searchSlice";
+import { Spinner } from "../spinner/Spinner";
 
 function ItemsList() {
   const dispatch = useAppDispatch();
   const { value: q, enableSearch } = useAppSelector((store) => store.search);
-  const {
-    data,
-    error: e,
-    isFetching,
-  } = useSearchItemQuery(q as string, {
+  const { data, isFetching, isLoading } = useSearchItemQuery(q as string, {
     skip: !enableSearch,
   });
 
@@ -23,12 +20,12 @@ function ItemsList() {
     }
   }, [enableSearch, isFetching, dispatch]);
 
-  if (isFetching) return <div>Loading...</div>;
+  if (isFetching || isLoading) return <Spinner />;
 
-  if (e) return <div>Error: {JSON.stringify(e)}</div>;
+  debugger;
 
   return (
-    <section data-testid="search-results">
+    <section data-testid="search-results" className="grid grid-cols-1">
       {data?.items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
