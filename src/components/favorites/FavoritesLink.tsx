@@ -2,7 +2,11 @@ import { useGetFavoritesQuery } from "@/lib/slices/favoritesApiSlice";
 import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 
-function FavoritesLink() {
+type FavoritesLinkProps = {
+  className?: string;
+};
+
+function FavoritesLink({ className }: FavoritesLinkProps) {
   const favorites =
     useGetFavoritesQuery(undefined, { refetchOnMountOrArgChange: true }).data ||
     [];
@@ -10,7 +14,7 @@ function FavoritesLink() {
   return (
     <Link
       href="/favorites"
-      className="mb-2 relative flex justify-center items-center"
+      className={`${className} mb-2 relative flex justify-center items-center`}
       data-testid="favorites-link"
     >
       <span className="invisible w-0 h-0 flex">Favoritos</span>
