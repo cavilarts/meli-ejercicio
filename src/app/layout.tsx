@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header/Header";
 import StoreProvider from "@/components/provider/StoreProvider";
 import { Suspense } from "react";
+import { Spinner } from "@/components/spinner/Spinner";
 
 const figTree = Figtree({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({
         className={`${figTree.className} antialiased flex flex-col h-screen`}
       >
         <StoreProvider>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner />}>
             <Header />
             {children}
           </Suspense>
