@@ -52,27 +52,33 @@ export default async function ProductPage(props: PageProps) {
   };
 
   return (
-    <section className="p-4" data-testid="item-detail-page">
+    <section className="bg-gray-100 h-full" data-testid="item-detail-page">
       <BreadcrumbsServer items={await getCategories(item.category)} />
-      <article className="flex flex-col">
+      <article className="flex flex-col bg-white p-4 rounded-lg">
         <div className="flex flex-col">
           <Image src={mainImage} alt={item.title} width={500} height={700} />
         </div>
-        <div>
-          <p>
+        <div className="pt-8">
+          <p className="text-sm text-gray-500 mb-4">
             {item.condition} - {item.sold_quantity} vendidos
           </p>
-          <div>
-            <h1>{item.title}</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl text-black font-bold">{item.title}</h1>
             <FavoriteButton item={{ ...item, favorite }} />
           </div>
-          <p>{formatPrice(item.price.amount)}</p>
+          <h2 className="text-4xl text-black py-8">
+            {formatPrice(item.price.amount)}
+          </h2>
           <p>{item.free_shipping && <span>Envío gratis</span>}</p>
-          <button>Comprar</button>
+          <button className="bg-blue-700 text-white w-full rounded-lg p-4 text-xl">
+            Comprar
+          </button>
         </div>
         <div>
-          <h2>Descripción del producto</h2>
-          <p>{item.description}</p>
+          <h2 className="text-3xl py-8 text-black font-bold">
+            Descripción del producto
+          </h2>
+          <p className="text-gray-500 mb-8 text-base">{item.description}</p>
         </div>
       </article>
     </section>
