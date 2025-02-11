@@ -31,7 +31,13 @@ async function getProducts(
       description: "get this value from it's endpoint",
     })
   );
-  const categories = filters.map((category) => category.name);
+  const categories = filters
+    .map((category) =>
+      category.values.map((value) => value.path_from_root?.map((v) => v.name))
+    )
+    .flat()
+    .flat()
+    .filter((value) => value !== undefined);
 
   return {
     author: {

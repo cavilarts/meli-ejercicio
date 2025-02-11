@@ -1,5 +1,6 @@
 "use client";
 
+import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
 import ItemsList from "@/components/items/ItemsList";
 import { useAppDispatch } from "@/lib/hooks";
 import { setSearchStatus, setSearchValue } from "@/lib/slices/searchSlice";
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <main className="bg-gray-100" data-testid="items-page">
+      <Breadcrumbs />
       <ItemsList />
     </main>
   );

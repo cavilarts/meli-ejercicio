@@ -28,7 +28,7 @@ function FavoriteButton(props: FavoriteButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className=" text-red-800 p-2 rounded-md"
+      className=" text-red-800 p-2 rounded-md text-2xl"
       data-testid="favorite-button"
     >
       <span className="w-0 h-0 invisible flex">

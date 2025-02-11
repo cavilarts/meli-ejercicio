@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import { BreadcrumbsServer } from "@/components/breadcrumbs/BreadcrumbsServer";
 import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 import type { ItemExtra } from "@/types/item";
 import Image from "next/image";
@@ -26,6 +27,15 @@ async function getFavorite(id: string): Promise<boolean> {
   return favorites?.includes(id) ?? false;
 }
 
+async function getCategories(id: string): Promise<string[]> {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/category/${id}`
+  );
+  const { categories } = await response.json();
+
+  return categories;
+}
+
 export default async function ProductPage(props: PageProps) {
   const { id } = await props.params;
   const item: ItemExtra = await getProduct(id);
@@ -43,6 +53,7 @@ export default async function ProductPage(props: PageProps) {
 
   return (
     <section className="p-4" data-testid="item-detail-page">
+      <BreadcrumbsServer items={await getCategories(item.category)} />
       <article className="flex flex-col">
         <div className="flex flex-col">
           <Image src={mainImage} alt={item.title} width={500} height={700} />
@@ -54,13 +65,6 @@ export default async function ProductPage(props: PageProps) {
           <div>
             <h1>{item.title}</h1>
             <FavoriteButton item={{ ...item, favorite }} />
-            {/* <button
-              data-testid="favorite-button"
-              className="text-red-500 p-2 rounded-md"
-              onClick={handleClick}
-            >
-              {favorite ? <FaHeart /> : <FaRegHeart />}
-            </button> */}
           </div>
           <p>{formatPrice(item.price.amount)}</p>
           <p>{item.free_shipping && <span>Envío gratis</span>}</p>

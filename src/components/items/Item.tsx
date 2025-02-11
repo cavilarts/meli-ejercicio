@@ -40,20 +40,22 @@ function Item({ item }: ItemProps) {
           height="180"
           className="rounded-sm w-36 h-36"
         />
-        <div>
-          <div className="flex gap-2 mb-4">
-            <h2 className="text-2xl">{formatPrice(item.price.amount)}</h2>
-            <Image
-              src="/images/ic_shipping.png"
-              alt="Free shipping"
-              width="24"
-              height="24"
-              className="self-center w-6 h-6"
-            />
+        <div className="flex justify-between w-full">
+          <div>
+            <div className="flex gap-2 mb-4">
+              <h2 className="text-2xl">{formatPrice(item.price.amount)}</h2>
+              <Image
+                src="/images/ic_shipping.png"
+                alt="Free shipping"
+                width="24"
+                height="24"
+                className="self-center w-6 h-6"
+              />
+            </div>
+            <h3>{item.title}</h3>
           </div>
-          <h3>{item.title}</h3>
+          <FavoriteButton item={{ ...item, favorite: !!isFavorite }} />
         </div>
-        <FavoriteButton item={{ ...item, favorite: !!isFavorite }} />
       </article>
     </Link>
   );
