@@ -9,7 +9,10 @@ function FavoritesList() {
     refetchOnMountOrArgChange: true,
   });
   return (
-    <section data-testid="favorites-list" className="grid grid-cols-1">
+    <section
+      data-testid="favorites-list"
+      className="grid grid-cols-1 md:max-w-7xl md:mx-auto"
+    >
       {isFetching && <Spinner />}
       {!isFetching && favorites?.length === 0 && (
         <p className="p-4">No hay favoritos</p>

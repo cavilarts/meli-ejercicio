@@ -30,10 +30,10 @@ function Item({ item }: ItemProps) {
     <Link
       href={`/items/${item.id}`}
       passHref
-      className="flex flex-col mx-auto w-full overflow-hidden"
+      className="flex flex-col mx-auto w-full rounded-lg overflow-hidden"
     >
       <article
-        className="flex bg-white p-4 gap-4 rounded-lg"
+        className="flex bg-white p-4 gap-4 md:w-[1280px]"
         data-testid="item"
         data-item-id={item.id}
       >

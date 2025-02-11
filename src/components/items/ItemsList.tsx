@@ -25,7 +25,10 @@ function ItemsList() {
   debugger;
 
   return (
-    <section data-testid="search-results" className="grid grid-cols-1">
+    <section
+      data-testid="search-results"
+      className="grid grid-cols-1 md:max-w-7xl md:mx-auto"
+    >
       {data?.items.map((item) => (
         <Item key={item.id} item={item} />
       ))}

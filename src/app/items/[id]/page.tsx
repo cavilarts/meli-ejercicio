@@ -53,43 +53,47 @@ export default async function ProductPage(props: PageProps) {
 
   return (
     <section
-      className="bg-gray-100 overflow-hidden"
+      className="bg-gray-100 overflow-hidden pb-8"
       data-testid="item-detail-page"
     >
       <BreadcrumbsServer items={await getCategories(item.category)} />
-      <article className="flex flex-col bg-white p-4 rounded-lg w-screen">
-        <div className="flex flex-col">
-          <Image
-            className=""
-            src={mainImage}
-            alt={item.title}
-            width={680}
-            height={680}
-            priority
-          />
-        </div>
-        <div className="pt-8">
-          <p className="text-sm text-gray-500 mb-4">
-            {item.condition} - {item.sold_quantity} vendidos
-          </p>
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl text-black font-bold">{item.title}</h1>
-            {item.free_shipping && (
-              <Image
-                src="/images/ic_shipping.png"
-                alt="Free shipping"
-                width="24"
-                height="24"
-              />
-            )}
-            <FavoriteButton item={{ ...item, favorite }} />
+      <article className="bg-white p-4 rounded-lg w-screen md:max-w-7xl md:mx-auto md:flex-row">
+        <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col">
+            <Image
+              className=""
+              src={mainImage}
+              alt={item.title}
+              width={680}
+              height={680}
+              priority
+            />
           </div>
-          <h2 className="text-4xl text-black py-8">
-            {formatPrice(item.price.amount)}
-          </h2>
-          <button className="bg-blue-700 text-white w-full rounded-lg p-4 text-xl">
-            Comprar
-          </button>
+          <div className="pt-8">
+            <p className="text-sm text-gray-500 mb-4">
+              {item.condition} - {item.sold_quantity} vendidos
+            </p>
+            <div className="flex justify-between items-center">
+              <h1 className="text-2xl text-black font-bold md:max-w-52">
+                {item.title}
+              </h1>
+              {item.free_shipping && (
+                <Image
+                  src="/images/ic_shipping.png"
+                  alt="Free shipping"
+                  width="24"
+                  height="24"
+                />
+              )}
+              <FavoriteButton item={{ ...item, favorite }} />
+            </div>
+            <h2 className="text-4xl text-black py-8">
+              {formatPrice(item.price.amount)}
+            </h2>
+            <button className="bg-blue-700 text-white w-full rounded-lg p-4 text-xl md:w-[380px]">
+              Comprar
+            </button>
+          </div>
         </div>
         <div>
           <h2 className="text-3xl py-8 text-black font-bold">
