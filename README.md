@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bienvenido
 
-## Getting Started
+Esta prueba fue realizada por Carlos Ávila.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js – Para la interfaz de usuario con React y API routes.
+- Tailwind CSS – Para estilos.
+- Redux Toolkit (RTK) – Para la gestión de estado en los componentes cliente.
+- Vitest – Para pruebas unitarias.
+- Playwright – Para pruebas de integración.
+- Husky - Para correr rutinas pre-commit
+- Github Actions - para asegurarnos que todo este bien en produccion
+
+## Instalación
+
+Se recomienda usar la versión LTS de Node.js o una versión igual o superior a `22.13.1`.
+
+- Clonar el repositorio:
+
+```sh
+git clone https://github.com/cavilarts/meli-ejercicio
+cd meli-ejercicio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Instalar dependencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Crear el archivo de configuración `.env` en la carpeta root del proyecto
 
-## Learn More
+```sh
+MELI_ITEMS_SEARCH_URL=AQUI VA LA URL DE SEARCH DE MELI
+MELI_ITEM_DETAILS= QUI VA LA URL DE ITEM DE MELI
+MELI_ITEM_CATEGORIES=QUI VA LA URL DE CATEGORIA DE MELI
+NEXT_PUBLIC_API_URL=http://localhost:3000/api/v1
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Modo desarrollo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para ejecutar el proyecto en modo desarrollo, usa el siguiente comando:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run dev
+```
 
-## Deploy on Vercel
+## Modo producción
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para compilar y ejecutar en producción:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+npm run build
+npm start
+```
+
+## Pruebas
+
+### Pruebas unitarias
+
+Para ejecutar las pruebas una sola vez:
+
+```sh
+npm test
+npm run test:watch
+```
+
+### Pruebas de integración
+
+Para ejecutar las pruebas de integración con Playwright:
+
+```sh
+npx playwright test
+```
