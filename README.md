@@ -2,6 +2,22 @@
 
 Esta prueba fue realizada por Carlos Ávila.
 
+## Versión desplegada
+
+Puede ver el proyecto en modo producción aquí: https://meli-ejercicio-h3sf5r06l-cavilarts-projects.vercel.app/
+
+## Diagrama de componentes
+
+![diagrama de componentes](https://i.postimg.cc/KvkV57kW/components-diagram.jpg)
+
+## Check List
+
+| Tipo        | Status |
+| ----------- | ------ |
+| Unitarias   | ✅     |
+| Integracion | ✅     |
+| Build       | ✅     |
+
 ## Tech Stack
 
 - Next.js – Para la interfaz de usuario con React y API routes.
