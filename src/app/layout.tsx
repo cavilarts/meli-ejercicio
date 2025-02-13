@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Mercado Libre Argentina - Envíos Gratis en el día",
   description: "Mercado Libre, busca tus productos aqui!",
   keywords: "Mercado Libre, Argentina, envíos gratis, productos",
-  robots: "index, follow",
+  robots: "all",
 };
 
 export const viewport: Viewport = {
