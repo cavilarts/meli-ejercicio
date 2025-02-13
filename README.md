@@ -12,11 +12,24 @@ Puede ver el proyecto en modo producción aquí: https://meli-ejercicio-h3sf5r06
 
 ## Check List
 
-| Tipo        | Status |
-| ----------- | ------ |
-| Unitarias   | ✅     |
-| Integracion | ✅     |
-| Build       | ✅     |
+| Tipo          | Status |
+| ------------- | ------ |
+| Unitarias     | ✅     |
+| Accesibilidad | ✅     |
+| Integracion   | ✅     |
+| Build         | ✅     |
+
+## Reporte lighthouse
+
+![reporte lighthouse](https://i.postimg.cc/6pQszkYw/Screenshot-2025-02-13-at-8-03-02-AM.png)
+
+# Viewports soportados
+
+| viewport | soporte |
+| -------- | ------- |
+| Moviles  | ✅      |
+| Tabletas | ✅      |
+| Desktop  | ✅      |
 
 ## Tech Stack
 
