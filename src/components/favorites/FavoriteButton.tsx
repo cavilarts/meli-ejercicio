@@ -30,6 +30,7 @@ function FavoriteButton(props: FavoriteButtonProps) {
       onClick={handleClick}
       className=" text-red-800 p-2 rounded-md text-2xl"
       data-testid="favorite-button"
+      title="Agregar a favoritos"
     >
       <span className="w-0 h-0 invisible flex">
         {favoriteState ? "favorito" : "incluyelo a tus favoritos"}

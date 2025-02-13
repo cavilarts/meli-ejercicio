@@ -61,7 +61,7 @@ vi.mock("@/lib/slices/favoritesApiSlice", async (importOriginal) => {
 
 describe("<FavoritesLink />", () => {
   beforeAll(() => {
-    renderWithProviders(<FavoritesLink />);
+    renderWithProviders(<FavoritesLink id={""} />);
   });
 
   afterAll(() => {
@@ -77,7 +77,7 @@ describe("<FavoritesLink />", () => {
   });
 
   test("should have a counter with the number of favorites", () => {
-    expect(screen.getByRole("counter")).toBeDefined();
+    expect(screen.getByRole("status")).toBeDefined();
   });
 
   test("should render the number of favorites", () => {

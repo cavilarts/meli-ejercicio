@@ -22,7 +22,7 @@ function FavoritesLink({ className, id }: FavoritesLinkProps) {
     >
       <span className="invisible w-0 h-0 flex">Favoritos</span>
       <span
-        role="counter"
+        role="status"
         className="rounded-full bg-red-800 text-white text-xs w-5 h-5 flex items-center transform absolute top-1/2 left-1/2 justify-center -translate-x-1/2 -translate-y-1/2"
       >
         {favorites.length}
